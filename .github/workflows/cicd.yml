@@ -2,6 +2,10 @@
 name: inv-test
 
 on: push
+permissions:
+  id-token: write
+  contents: read
+  actions: read
 
 jobs:
   build:
@@ -67,10 +71,8 @@ jobs:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
       #   if: always() # Pick up events even if the job fails or is canceled.
 
-permissions:
-  id-token: write
-  contents: read
-+ actions: read
+
+
   slack-test:
     runs-on: ubuntu-latest
     steps:
